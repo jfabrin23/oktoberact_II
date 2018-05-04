@@ -75,8 +75,12 @@
 
               <v-btn color="primary" @click="salvar" :disabled="!valid" :loading="loading">Salvar</v-btn>
               <v-btn @click="limpar">Limpar</v-btn>
+
             </v-layout>
           </v-form>
+          <v-alert :type="msg.tipo" :value="true" v-if="msg.mostrar">
+            {{msg.texto}}
+          </v-alert>
         </v-container>
       </v-card>
     </v-dialog>

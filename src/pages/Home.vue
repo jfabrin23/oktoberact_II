@@ -164,7 +164,7 @@
                   </v-card-title>
                   <v-card-text>
                     <v-btn large block color="error" @click="inscricao = true">Inscrições</v-btn>
-                    <v-btn large block color="info">Pagamento</v-btn>
+                    <v-btn large block color="info" @click="pagamento = true">Pagamento</v-btn>
                   </v-card-text>
                 </v-card>
               </v-flex>
@@ -284,7 +284,8 @@
       </main>
 
       <!-- Modal Clubes -->
-      <ModalInscricao :lstClube='lstClube' :modal='inscricao' v-on:inscricao="close" v-if="inscricao"></ModalInscricao>
+      <ModalInscricao :lstClube='lstClube' :modal='inscricao' v-on:inscricao="closeInscricao" v-if="inscricao"></ModalInscricao>
+      <ModalPagamento :modal='pagamento' v-on:pagamento="closePagamento" v-if="pagamento"></ModalPagamento>
     </v-app>
   </div>
 </template>
@@ -292,17 +293,20 @@
 <script>
 import Firebase from 'firebase'
 import ModalInscricao from '@/components/ModalInscricao'
+import ModalPagamento from '@/components/ModalPagamento'
 
 var dbClube = Firebase.database().ref('clube')
 export default {
   name: 'Home',
   components: {
-    ModalInscricao
+    ModalInscricao,
+    ModalPagamento
   },
   data () {
     return {
       drawer: false,
       inscricao: false,
+      pagamento: false,
       lstClube: [
         {Nome: 'Rotaract Club de Cianorte'},
         {Nome: 'Rotaract Club de Goioere'}
@@ -322,8 +326,11 @@ export default {
     lstClube: dbClube
   },
   methods: {
-    close (val) {
+    closeInscricao (val) {
       this.inscricao = val
+    },
+    closePagamento (val) {
+      this.pagamento = val
     }
   }
 }
