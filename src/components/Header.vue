@@ -21,7 +21,7 @@
                 </v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
-            <v-list-tile v-for="(child, i) in item.children" :key="i" @click="$router.push('')">
+            <v-list-tile v-for="(child, i) in item.children" :key="i" @click="$router.push(child.link)">
               <v-list-tile-action v-if="child.icon">
                 <v-icon>{{ child.icon }}</v-icon>
               </v-list-tile-action>
@@ -32,7 +32,7 @@
               </v-list-tile-content>
             </v-list-tile>
           </v-list-group>
-          <v-list-tile v-else @click="$router.push('')" :key="item.text">
+          <v-list-tile v-else @click="$router.push(item.link)" :key="item.text">
             <v-list-tile-action>
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-tile-action>
@@ -63,11 +63,11 @@ export default {
     return {
       drawer: true,
       menu: [
-        { icon: 'create', text: 'Inscrições' },
-        { icon: 'local_hospital', text: 'Alergias/Alimentação' },
-        { icon: 'payment', text: 'Pagamentos' },
-        { icon: 'account_circle', text: 'Usuário' },
-        { icon: 'exit_to_app', text: 'Sair' }
+        { icon: 'create', text: 'Inscrições', link: 'inscricao' },
+        { icon: 'local_hospital', text: 'Alergias/Alimentação', link: 'emergencia' },
+        { icon: 'payment', text: 'Financeiro', link: 'financeiro' },
+        { icon: 'account_circle', text: 'Usuário', link: 'usuario' },
+        { icon: 'exit_to_app', text: 'Sair', link: 'sair' }
       ]
     }
   }

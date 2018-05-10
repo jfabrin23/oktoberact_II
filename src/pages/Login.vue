@@ -70,6 +70,18 @@ export default {
   },
   props: {
     source: String
+  },
+  watch: {
+    msg: function () {
+      var self = this
+      setTimeout(function () {
+        self.msg = {
+          tipo: '',
+          texto: '',
+          mostrar: false
+        }
+      }, 3000)
+    }
   }
 }
 </script>

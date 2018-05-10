@@ -22,12 +22,14 @@
                 <template slot="items" slot-scope="props">
                   <td>{{ props.item.descricao }}</td>
                   <td>{{ props.item.tipo | tipo }}</td>
-                  <td class="text-xs-right">R$ {{ props.item.valor }}</td>
+                  <td>{{ props.item.valor | grana }}</td>
                 </template>
-                <template>
+                <template slot="footer">
+                  <td></td>
+                  <td class="text-xs-right"><strong>Total:</strong></td>
+                  <td><strong>{{ tbl.fluxoCaixa.totalizador.valor | grana }}</strong></td>
                 </template>
               </v-data-table>
-              Total: {{ total }}
             </v-flex>
           </v-layout>
         </v-container>
@@ -64,11 +66,12 @@ export default {
             { text: 'Valor', align: 'left', value: 'valor' }
           ],
           items: [],
-          totalizador: ''
+          totalizador: {
+            valor: 0
+          }
         }
       },
-      financeiros: [],
-      total: 0
+      financeiros: []
     }
   },
   filters: {
@@ -80,6 +83,11 @@ export default {
         tipo = 'Entrada'
       }
       return tipo
+    },
+    grana (val) {
+      var money
+      money = 'R$ ' + String(val.toFixed(2)).replace('.', ',')
+      return money
     }
   },
   firebase: {
@@ -90,7 +98,7 @@ export default {
   },
   watch: {
     financeiros: function (dados) {
-      this.total = dados.reduce(function (valorTotal, item) {
+      this.tbl.fluxoCaixa.totalizador.valor = dados.reduce(function (valorTotal, item) {
         return valorTotal + parseFloat(item.valor)
       }, 0)
     }

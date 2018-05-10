@@ -1,8 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/pages/Home'
-import Admin from '@/pages/Admin'
 import Login from '@/pages/Login'
+import Admin from '@/pages/Admin'
+import Inscricao from '@/pages/Inscricao'
+import Emergencia from '@/pages/Emergencia'
+import Usuario from '@/pages/Usuario'
 
 Vue.use(Router)
 
@@ -22,6 +25,21 @@ export default new Router({
       path: '/admin',
       name: 'Admin',
       component: Admin
+    },
+    {
+      path: '/inscricao',
+      name: 'Inscricao',
+      component: Inscricao
+    },
+    {
+      path: '/emergencia',
+      name: 'Emergencia',
+      component: Emergencia
+    },
+    {
+      path: '/usuario',
+      name: 'Usuario',
+      component: Usuario
     },
     {
       path: '*',

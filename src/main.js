@@ -16,7 +16,8 @@ Vue.use(Vuetify, {
     primary: '#017C50',
     secondary: '#12543D',
     accent: colors.indigo.accent1,
-    modal: '#017C50'
+    modal: '#017C50',
+    cinza: '#CCCCCC'
   }
 })
 Vue.use(VueFire)
