@@ -6,6 +6,7 @@ import Admin from '@/pages/Admin'
 import Inscricao from '@/pages/Inscricao'
 import Emergencia from '@/pages/Emergencia'
 import Usuario from '@/pages/Usuario'
+import Financeiro from '@/pages/Financeiro'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/usuario',
       name: 'Usuario',
       component: Usuario
+    },
+    {
+      path: '/financeiro',
+      name: 'Financeiro',
+      component: Financeiro
     },
     {
       path: '*',

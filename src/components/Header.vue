@@ -63,6 +63,7 @@ export default {
     return {
       drawer: true,
       menu: [
+        { icon: 'home', text: 'Pagina Inicial', link: 'admin' },
         { icon: 'create', text: 'Inscrições', link: 'inscricao' },
         { icon: 'local_hospital', text: 'Alergias/Alimentação', link: 'emergencia' },
         { icon: 'payment', text: 'Financeiro', link: 'financeiro' },

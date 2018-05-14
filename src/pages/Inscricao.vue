@@ -21,41 +21,37 @@
                   </tr>
                 </template>
                 <template slot="expand" slot-scope="props">
-                  <v-card flat>
-                    <v-card-text>
-                      <v-layout row wrap>
-                        <v-flex xs6 sm6>
-                          <h4>Contato</h4>
-                          {{ props.item.contato.nome }} ({{ props.item.contato.parentesco }})<br />
-                          <v-icon>phone</v-icon> {{ props.item.contato.telefone }} <br />
-                        </v-flex>
-                        <v-flex xs6 sm6>
-                          <h4>Alergias/Alimentação</h4>
-                          <div v-show="props.item.restricao.alergiamedicamentos">
-                            <v-icon>local_hospital</v-icon> {{ props.item.restricao.medicamentos }}
-                          </div> <br />
-                          <div v-show="props.item.restricao.alergiaalimentar">
-                            <v-icon>fastfood</v-icon> {{ props.item.restricao.alimentos }}
-                          </div> <br />
-                          <div v-show="props.item.restricao.vegetariano">
-                            <v-icon>spa</v-icon> Vegetáriano / Vegano
-                          </div> <br />
-                        </v-flex>
-                        <v-flex xs12 sm12 text-xs-right>
-                          <v-card dark color="cinza">
-                            <v-tooltip top>
-                              <v-btn flat icon color="primary" slot="activator"><v-icon>transfer_within_a_station</v-icon></v-btn>
-                              <span>Transferir Inscrição</span>
-                            </v-tooltip>
-                            <v-tooltip top>
-                              <v-btn flat icon color="primary" slot="activator"><v-icon>clear</v-icon></v-btn>
-                              <span>Cancelar Inscrição</span>
-                            </v-tooltip>
-                          </v-card>
-                        </v-flex>
-                      </v-layout>
-                    </v-card-text>
-                  </v-card>
+                  <v-layout row wrap>
+                    <v-flex xs6 sm6>
+                      <h4>Contato</h4>
+                      {{ props.item.contato.nome }} ({{ props.item.contato.parentesco }})<br />
+                      <v-icon>phone</v-icon> {{ props.item.contato.telefone }} <br />
+                    </v-flex>
+                    <v-flex xs6 sm6>
+                      <h4>Alergias/Alimentação</h4>
+                      <div v-show="props.item.restricao.alergiamedicamentos">
+                        <v-icon>local_hospital</v-icon> {{ props.item.restricao.medicamentos }}
+                      </div> <br />
+                      <div v-show="props.item.restricao.alergiaalimentar">
+                        <v-icon>fastfood</v-icon> {{ props.item.restricao.alimentos }}
+                      </div> <br />
+                      <div v-show="props.item.restricao.vegetariano">
+                        <v-icon>spa</v-icon> Vegetáriano / Vegano
+                      </div> <br />
+                    </v-flex>
+                    <v-flex xs12 sm12 text-xs-right>
+                      <v-card dark color="cinza">
+                        <v-tooltip top>
+                          <v-btn flat icon color="primary" slot="activator"><v-icon>transfer_within_a_station</v-icon></v-btn>
+                          <span>Transferir Inscrição</span>
+                        </v-tooltip>
+                        <v-tooltip top>
+                          <v-btn flat icon color="primary" slot="activator"><v-icon>clear</v-icon></v-btn>
+                          <span>Cancelar Inscrição</span>
+                        </v-tooltip>
+                      </v-card>
+                    </v-flex>
+                  </v-layout>
                 </template>
               </v-data-table>
             </v-flex>
