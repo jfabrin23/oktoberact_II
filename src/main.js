@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import VueFire from 'vuefire'
+import money from 'v-money'
 import App from './App'
 import router from './router'
 import lightbox from 'vlightbox'
@@ -22,6 +23,7 @@ Vue.use(Vuetify, {
 })
 Vue.use(VueFire)
 Vue.use(lightbox)
+Vue.use(money, {precision: 2})
 
 /* eslint-disable no-new */
 new Vue({
