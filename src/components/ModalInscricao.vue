@@ -165,8 +165,9 @@ export default {
     },
     gravarFinanceiro () {
       this.financeiro.descricao += this.participante.nome
+      console.log('Teste ' + this.financeiro)
       var retorno = false
-      dbFinanceiro.push(this.financeiro)
+      if (dbFinanceiro.push(this.financeiro)) retorno = true
       return retorno
     },
     limpar () {

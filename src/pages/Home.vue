@@ -170,7 +170,7 @@
                 </v-card>
               </v-flex>
               <!-- inscrições -->
-              <v-flex xs12 sm2>
+              <v-flex xs12 sm2 v-show="inscricaoAberta">
                 <v-card class="elevation-0">
                   <v-card-title primary-title>
                     <div class="headline text-xs-center" style="width:100%"></div>
@@ -319,6 +319,7 @@ export default {
     return {
       drawer: false,
       inscricao: false,
+      inscricaoAberta: false,
       pagamento: false,
       lstClube: [
         {Nome: 'Rotaract Club de Cianorte'},
