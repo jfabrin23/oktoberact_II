@@ -15,16 +15,17 @@
         <v-container grid-list-sm class="pa-4">
           <v-layout row wrap>
             <v-flex xs12 sm6>
-              <h1>Depósito</h1>
+              <img src="../../static/img/Sicredi.png" height="50">
               <p>
-                <small>Agência: </small> <strong>0233</strong><br />
-                <small>Conta: </small> <strong>78369-8</strong><br />
-                <small>Beneficiário: </small> <strong>Fulano de Tal</strong><br />
-                <small>Enviar comprovante de pagamento para: </small> <strong>pagamento@email.com</strong>
+                <small>Agência: </small> <strong>0718</strong><br />
+                <small>Conta: </small> <strong>03696-6</strong><br />
+                <small>Beneficiário: </small> <strong>Diego Rafael Fachin</strong><br />
+                <small>CPF: </small> <strong>071.409.339-44</strong><br />
+                <small>Enviar comprovante de pagamento para: </small> <strong>rafaell.ornelas@gmail.com</strong>
               </p>
             </v-flex>
             <v-flex xs12 sm6>
-              <h1>Cartão</h1>
+              <img src="../../static/img/pagseguro-logo-2.png" height="50">
             </v-flex>
           </v-layout>
         </v-container>

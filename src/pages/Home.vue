@@ -51,8 +51,8 @@
                   </center>
                   <v-card-text class="text-xs-center">
                     <p class="font-60">
-                      06 e 07<br />
-                      <small>Outubro</small>
+                      16<small>*</small> a 18<br />
+                      <small>Novembro</small>
                     </p>
                   </v-card-text>
                 </v-card>
@@ -79,7 +79,7 @@
                   </center>
                   <v-card-text class="text-xs-center">
                     <p class="font-60">
-                      00/150<br />
+                      00/100<br />
                       <small><small><small>Vagas limitadas!</small></small></small>
                     </p>
                   </v-card-text>
@@ -109,9 +109,9 @@
                     <div class="headline text-xs-center" style="width:100%">1º Lote</div>
                   </v-card-title>
                   <v-card-text>
-                    <small>50 inscrições</small><br />
-                    <small>Depósito: R$</small> <strong>35,00</strong> <br />
-                    <small>Cartão: R$</small> <strong>40,00</strong> <br />
+                    <small>20 inscrições</small><br />
+                    <small>Depósito: R$</small> <strong>45,00</strong> <br />
+                    <small>Cartão: R$</small> <strong>50,00</strong> <br />
                   </v-card-text>
                 </v-card>
               </v-flex>
@@ -124,9 +124,9 @@
                     </div>
                   </v-card-title>
                   <v-card-text>
-                    <small>50 inscrições</small><br />
-                    <small>Depósito: R$</small> <strong>45,00</strong> <br />
-                    <small>Cartão: R$</small> <strong>50,00</strong> <br />
+                    <small>30 inscrições</small><br />
+                    <small>Depósito: R$</small> <strong>55,00</strong> <br />
+                    <small>Cartão: R$</small> <strong>60,00</strong> <br />
                   </v-card-text>
                 </v-card>
               </v-flex>
@@ -137,34 +137,47 @@
                     <div class="headline text-xs-center" style="width:100%">3º Lote</div>
                   </v-card-title>
                   <v-card-text>
-                    <small>50 inscrições</small><br />
-                    <small>Depósito: R$</small> <strong>55,00</strong> <br />
-                    <small>Cartão: R$</small> <strong>60,00</strong> <br />
+                    <small>30 inscrições</small><br />
+                    <small>Depósito: R$</small> <strong>65,00</strong> <br />
+                    <small>Cartão: R$</small> <strong>70,00</strong> <br />
                   </v-card-text>
                 </v-card>
               </v-flex>
-              <!-- day use -->
+              <!-- lote 4 -->
               <v-flex xs12 sm2>
                 <v-card class="elevation-0">
                   <v-card-title primary-title>
-                    <div class="headline text-xs-center" style="width:100%">Day use</div>
+                    <div class="headline text-xs-center" style="width:100%">4º Lote</div>
                   </v-card-title>
                   <v-card-text>
-                    <small>Até</small> <strong>00/00 as 00:00</strong><br />
-                    <small>Sábado R$:</small> <strong>35,00</strong><br />
-                    <small>Domingo R$:</small> <strong>25,00</strong>
+                    <small>20 inscrições</small><br />
+                    <small>Depósito R$:</small> <strong>75,00</strong><br />
+                    <small>Cartão R$:</small> <strong>80,00</strong>
+                  </v-card-text>
+                </v-card>
+              </v-flex>
+              <!-- Sexta-Feira -->
+              <v-flex xs12 sm2>
+                <v-card class="elevation-0">
+                  <v-card-title primary-title>
+                    <div class="headline text-xs-center" style="width:100%">Sexta (16*)</div>
+                  </v-card-title>
+                  <v-card-text>
+                    <small>25 inscrições</small><br />
+                    <small>Depósito + R$:</small> <strong>15,00</strong><br />
+                    <small>Cartão + R$:</small> <strong>20,00</strong>
                   </v-card-text>
                 </v-card>
               </v-flex>
               <!-- inscrições -->
-              <v-flex xs12 sm4>
+              <v-flex xs12 sm2>
                 <v-card class="elevation-0">
                   <v-card-title primary-title>
                     <div class="headline text-xs-center" style="width:100%"></div>
                   </v-card-title>
                   <v-card-text>
-                    <v-btn large block color="error" @click="inscricao = true">Inscrições</v-btn>
-                    <v-btn large block color="info" @click="pagamento = true">Pagamento</v-btn>
+                    <v-btn large block color="success" @click="inscricao = true">Inscreva-se</v-btn>
+                    <v-btn large block color="default" @click="pagamento = true">Pagamento</v-btn>
                   </v-card-text>
                 </v-card>
               </v-flex>
@@ -183,7 +196,7 @@
 
           <!-- Fotos -->
           <div id="content">
-            <v-layout row wrap class="my-5" >
+            <v-layout row wrap class="my-5 display-scroll" >
               <v-flex xs12>
                 <div class="headline text-xs-center ml-3">Fotos Local</div>
                 <lightbox :images="local"></lightbox>
@@ -313,11 +326,82 @@ export default {
       ],
       local: [
         {
-          src: 'https://unsplash.it/500',
-          caption: 'Image 1'
+          src: '../../static/img/local/viola_de_ouro (1).jpeg'
         },
         {
-          src: 'https://unsplash.it/501'
+          src: '../../static/img/local/viola_de_ouro (2).jpeg'
+        },
+        {
+          src: '../../static/img/local/viola_de_ouro (3).jpeg'
+        },
+        {
+          src: '../../static/img/local/viola_de_ouro (4).jpeg'
+        },
+        {
+          src: '../../static/img/local/viola_de_ouro (5).jpeg'
+        },
+        {
+          src: '../../static/img/local/viola_de_ouro (6).jpeg'
+        },
+        {
+          src: '../../static/img/local/viola_de_ouro (7).jpeg'
+        },
+        {
+          src: '../../static/img/local/viola_de_ouro (8).jpeg'
+        },
+        {
+          src: '../../static/img/local/viola_de_ouro (9).jpeg'
+        },
+        {
+          src: '../../static/img/local/viola_de_ouro (10).jpeg'
+        },
+        {
+          src: '../../static/img/local/viola_de_ouro (11).jpeg'
+        },
+        {
+          src: '../../static/img/local/viola_de_ouro (12).jpeg'
+        },
+        {
+          src: '../../static/img/local/viola_de_ouro (13).jpeg'
+        },
+        {
+          src: '../../static/img/local/viola_de_ouro (14).jpeg'
+        },
+        {
+          src: '../../static/img/local/viola_de_ouro (15).jpeg'
+        },
+        {
+          src: '../../static/img/local/viola_de_ouro (16).jpeg'
+        },
+        {
+          src: '../../static/img/local/viola_de_ouro (17).jpeg'
+        },
+        {
+          src: '../../static/img/local/viola_de_ouro (18).jpeg'
+        },
+        {
+          src: '../../static/img/local/viola_de_ouro (19).jpeg'
+        },
+        {
+          src: '../../static/img/local/viola_de_ouro (20).jpeg'
+        },
+        {
+          src: '../../static/img/local/viola_de_ouro (21).jpeg'
+        },
+        {
+          src: '../../static/img/local/viola_de_ouro (22).jpeg'
+        },
+        {
+          src: '../../static/img/local/viola_de_ouro (23).jpeg'
+        },
+        {
+          src: '../../static/img/local/viola_de_ouro (24).jpeg'
+        },
+        {
+          src: '../../static/img/local/viola_de_ouro (25).jpeg'
+        },
+        {
+          src: '../../static/img/local/viola_de_ouro (26).jpeg'
         }
       ]
     }
@@ -382,5 +466,10 @@ a:hover {
 }
 v-toolbar a {
   color: dimgrey
+}
+.display-scroll {
+  height: 50vh;
+  display: block;
+  overflow-y: scroll;
 }
 </style>

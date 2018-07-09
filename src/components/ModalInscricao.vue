@@ -91,17 +91,11 @@
 import Firebase from 'firebase'
 
 var dbParticipante = Firebase.database().ref('participante')
+var dbFinanceiro = Firebase.database().ref('financeiro')
 export default {
   name: 'ModalInscricao',
   data () {
     return {
-      msg: {
-        tipo: '',
-        texto: '',
-        mostrar: false
-      },
-      loading: false,
-      outroClube: false,
       participante: {
         nome: '',
         clube: '',
@@ -120,6 +114,25 @@ export default {
         pagamento: false,
         situacao: true
       },
+      financeiro: {
+        descricao: 'Inscrição de ',
+        inscricao: true,
+        pagamento: {
+          data: '',
+          formapgt: ''
+        },
+        situacao: true,
+        tipo: 'E',
+        valor: 45.00,
+        vencimento: '20/06/2018'
+      },
+      msg: {
+        tipo: '',
+        texto: '',
+        mostrar: false
+      },
+      loading: false,
+      outroClube: false,
       teste: {},
       regrasValidacao: {
         nome: [
@@ -143,11 +156,18 @@ export default {
     }
   },
   firebase: {
-    participantes: dbParticipante
+    participantes: dbParticipante,
+    financeiros: dbFinanceiro
   },
   methods: {
     close (val) {
       this.$emit('inscricao', val)
+    },
+    gravarFinanceiro () {
+      this.financeiro.descricao += this.participante.nome
+      var retorno = false
+      dbFinanceiro.push(this.financeiro)
+      return retorno
     },
     limpar () {
       this.loading = false
@@ -156,12 +176,14 @@ export default {
     salvar () {
       if (this.$refs.form.validate()) {
         this.loading = true
-        dbParticipante.push(this.participante)
-        this.limpar()
-        this.msg = {
-          tipo: 'success',
-          texto: 'Sucesso! Nos vemos na Oktoberact... Cuida bem, cuida bem da sua marreca!',
-          mostrar: true
+        if (this.gravarFinanceiro()) {
+          dbParticipante.push(this.participante)
+          this.limpar()
+          this.msg = {
+            tipo: 'success',
+            texto: 'Sucesso! Nos vemos na Oktoberact... Cuida bem, cuida bem da sua marreca!',
+            mostrar: true
+          }
         }
       }
     }

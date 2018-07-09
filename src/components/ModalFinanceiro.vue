@@ -18,13 +18,8 @@
           </v-alert>
           <v-form v-model="valid" ref="form" lazy-validation>
             <v-layout row wrap>
-              <v-flex xs12 v-show="financeiro.tipo === 'E'">
-                <v-checkbox label="Inscrição" v-model="financeiro.inscricao"></v-checkbox>
-                <v-select label="Inscrição" v-model="inscricao" item-value="text" :items="cbb.participante" :disabled="!financeiro.inscricao"></v-select>
-              </v-flex>
-
               <v-flex xs12>
-                <v-text-field label="Descrição" v-model="financeiro.descricao" :rules="regrasValidacao.descricao" required :disabled="financeiro.inscricao"></v-text-field>
+                <v-text-field label="Descrição" v-model="financeiro.descricao" :rules="regrasValidacao.descricao" required></v-text-field>
               </v-flex>
 
               <v-flex xs12>
@@ -112,7 +107,6 @@ export default {
         valor: 0.00,
         vencimento: ''
       },
-      inscricao: '',
       loading: false,
       menu: false,
       menu2: false,
@@ -129,7 +123,6 @@ export default {
         mostrar: false
       },
       pagamento: '',
-      participantes: {},
       regrasValidacao: {
         descricao: [
           v => !!v || 'Descricao é obrigatório'
@@ -178,15 +171,14 @@ export default {
     salvar () {
       if (this.$refs.form.validate()) {
         this.loading = true
-        // this.financeiro.valor = parseFloat(this.financeiro.valor)
-        console.log(this.financeiro.valor)
-        /* dbFinanceiro.push(this.financeiro)
+        this.financeiro.valor = parseFloat(this.financeiro.valor.replace('R$ ', '').replace('.', '').replace(',', '.'))
+        dbFinanceiro.push(this.financeiro)
         this.limpar()
         this.msg = {
           tipo: 'success',
           texto: 'Sucesso! Nos vemos na Oktoberact... Cuida bem, cuida bem da sua marreca!',
           mostrar: true
-        } */
+        }
       }
     }
   },
@@ -212,18 +204,6 @@ export default {
       if (dados !== '') {
         this.financeiro.pagamento.data = this.formatDate(dados)
       }
-    },
-    participantes: function (dados) {
-      let lista = []
-      dados.map(function (val) {
-        if (val.pagamento) return false
-
-        lista.push({ value: val['.key'], text: val.nome + ' - ' + val.clube })
-      })
-      this.cbb.participante = lista
-    },
-    inscricao: function (dados) {
-      this.financeiro.descricao = 'Inscrição de ' + dados
     }
   }
 }

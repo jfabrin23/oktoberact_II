@@ -99,7 +99,13 @@ export default {
   watch: {
     financeiros: function (dados) {
       this.tbl.fluxoCaixa.totalizador.valor = dados.reduce(function (valorTotal, item) {
-        return valorTotal + parseFloat(item.valor)
+        var total = 0
+        if (item.tipo === 'E') {
+          total = valorTotal + parseFloat(item.valor)
+        } else {
+          total = valorTotal - parseFloat(item.valor)
+        }
+        return total
       }, 0)
     }
   }
