@@ -21,11 +21,12 @@
                 <small>Conta: </small> <strong>03696-6</strong><br />
                 <small>Beneficiário: </small> <strong>Diego Rafael Fachin</strong><br />
                 <small>CPF: </small> <strong>071.409.339-44</strong><br />
-                <small>Enviar comprovante de pagamento para: </small> <strong>rafaell.ornelas@gmail.com</strong>
+                <small>Enviar comprovante de pagamento para: </small> <strong>descontracao2018@gmail.com</strong>
               </p>
             </v-flex>
-            <v-flex xs12 sm6>
-              <img src="../../static/img/pagseguro-logo-2.png" height="50">
+            <v-flex xs12 sm6 aria-disabled>
+              <img src="../../static/img/pagseguro-logo-2.png" height="50"><br /><br />
+              Por Favor, entre em contato com a organização.
             </v-flex>
           </v-layout>
         </v-container>

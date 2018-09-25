@@ -161,6 +161,7 @@ export default {
     },
     formatDate (date) {
       if (!date) return null
+      date = date.split('T')[0]
       const [year, month, day] = date.split('-')
       return day + '/' + month + '/' + year
     },
@@ -182,9 +183,15 @@ export default {
       }
     }
   },
+  mounted () {
+    this.$nextTick(() => {
+      this.financeiro = this.fin
+    })
+  },
   props: [
     'modal',
-    'lancamento'
+    'lancamento',
+    'fin'
   ],
   watch: {
     situacao: function (dados) {
@@ -203,6 +210,12 @@ export default {
     pagamento: function (dados) {
       if (dados !== '') {
         this.financeiro.pagamento.data = this.formatDate(dados)
+      }
+    },
+    financeiro: function (dados) {
+      console.log('Aqui', dados)
+      if (dados !== '') {
+        dados.vencimento = this.formatDate(dados.vencimento)
       }
     }
   }

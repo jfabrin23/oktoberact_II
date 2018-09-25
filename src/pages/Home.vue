@@ -54,6 +54,7 @@
                       16<small>*</small> a 18<br />
                       <small>Novembro</small>
                     </p>
+                    <label> * - Dia 16 somente a partir das 19:00 </label>
                   </v-card-text>
                 </v-card>
               </v-flex>
@@ -79,8 +80,8 @@
                   </center>
                   <v-card-text class="text-xs-center">
                     <p class="font-60">
-                      00/100<br />
-                      <small><small><small>Vagas limitadas!</small></small></small>
+                      100<br />
+                      <small><small><small>Vagas</small></small></small>
                     </p>
                   </v-card-text>
                 </v-card>
@@ -88,7 +89,6 @@
             </v-layout>
           </div>
         </section>
-
 
         <!-- Imagem 2 e inscrições / lotes -->
         <section>
@@ -102,84 +102,76 @@
           <!-- inscrições / lotes -->
           <div id="content">
             <v-layout row wrap class="my-5" >
-              <!-- lote 1 -->
-              <v-flex xs12 sm2>
+              <!-- Lote Ativo -->
+              <v-flex xs12 sm4>
                 <v-card class="elevation-0">
                   <v-card-title primary-title>
-                    <div class="headline text-xs-center" style="width:100%">1º Lote</div>
+                    <div class="headline text-xs-center" style="width:100%">Lote Ativo</div>
                   </v-card-title>
                   <v-card-text>
-                    <small>20 inscrições</small><br />
-                    <small>Depósito: R$</small> <strong>45,00</strong> <br />
-                    <small>Cartão: R$</small> <strong>50,00</strong> <br />
+                    2º Lote<br />
+                    25 inscrições<br />
+                    2 Dias: R$ <strong>65,00*</strong> <br />
+                    3 Dias: R$ <strong>80,00*</strong> <br />
                   </v-card-text>
                 </v-card>
               </v-flex>
-              <!-- lote 2 -->
-              <v-flex xs12 sm2>
+              <!-- Demais Lotes -->
+              <v-flex xs12 sm4>
                 <v-card class="elevation-0">
                   <v-card-title primary-title>
-                    <div class="headline text-xs-center" style="width:100%">
-                      2º Lote
-                    </div>
+                    <div class="headline text-xs-center" style="width:100%">Próximos Lotes</div>
                   </v-card-title>
                   <v-card-text>
-                    <small>30 inscrições</small><br />
-                    <small>Depósito: R$</small> <strong>55,00</strong> <br />
-                    <small>Cartão: R$</small> <strong>60,00</strong> <br />
-                  </v-card-text>
-                </v-card>
-              </v-flex>
-              <!-- lote 3 -->
-              <v-flex xs12 sm2>
-                <v-card class="elevation-0">
-                  <v-card-title primary-title>
-                    <div class="headline text-xs-center" style="width:100%">3º Lote</div>
-                  </v-card-title>
-                  <v-card-text>
-                    <small>30 inscrições</small><br />
-                    <small>Depósito: R$</small> <strong>65,00</strong> <br />
-                    <small>Cartão: R$</small> <strong>70,00</strong> <br />
-                  </v-card-text>
-                </v-card>
-              </v-flex>
-              <!-- lote 4 -->
-              <v-flex xs12 sm2>
-                <v-card class="elevation-0">
-                  <v-card-title primary-title>
-                    <div class="headline text-xs-center" style="width:100%">4º Lote</div>
-                  </v-card-title>
-                  <v-card-text>
-                    <small>20 inscrições</small><br />
-                    <small>Depósito R$:</small> <strong>75,00</strong><br />
-                    <small>Cartão R$:</small> <strong>80,00</strong>
-                  </v-card-text>
-                </v-card>
-              </v-flex>
-              <!-- Sexta-Feira -->
-              <v-flex xs12 sm2>
-                <v-card class="elevation-0">
-                  <v-card-title primary-title>
-                    <div class="headline text-xs-center" style="width:100%">Sexta (16*)</div>
-                  </v-card-title>
-                  <v-card-text>
-                    <small>25 inscrições</small><br />
-                    <small>Depósito + R$:</small> <strong>15,00</strong><br />
-                    <small>Cartão + R$:</small> <strong>20,00</strong>
+                    <strike>
+                      <small>Lote Promocional (15 Vagas)</small><br />
+                      <small>2 Dias:</small> <strong>45,00*</strong> | <small>3 Dias:</small> <strong>60,00*</strong><br />
+                    </strike>
+                    <hr />
+                    <small>3º Lote (30 Vagas)</small><br />
+                    <small>2 Dias:</small> <strong>70,00*</strong> | <small>3 Dias:</small> <strong>85,00*</strong><br />
+                    <hr />
+                    <small>4º Lote (30 Vagas)</small><br />
+                    <small>2 Dias:</small> <strong>75,00*</strong> | <small>3 Dias:</small> <strong>90,00*</strong><br />
                   </v-card-text>
                 </v-card>
               </v-flex>
               <!-- inscrições -->
-              <v-flex xs12 sm2 v-show="inscricaoAberta">
+              <v-flex xs12 sm4 v-show="inscricaoAberta">
                 <v-card class="elevation-0">
                   <v-card-title primary-title>
                     <div class="headline text-xs-center" style="width:100%"></div>
                   </v-card-title>
                   <v-card-text>
-                    <v-btn large block color="success" @click="inscricao = true">Inscreva-se</v-btn>
+                    <v-btn large block color="success" @click="inscricao = true" :disabled="!loteAberto || loteEsgotado">Inscreva-se</v-btn>
                     <v-btn large block color="default" @click="pagamento = true">Pagamento</v-btn>
+                    <small>* - Taxa adicional de R$ 5,00 para cartão de crédito.</small>
+                    <div class="regimento">
+                      <a href="../../static/regimento.pdf" target="_blank">Regimento do Evento</a>
+                    </div>
                   </v-card-text>
                 </v-card>
+              </v-flex>
+            </v-layout>
+          </div>
+
+          <!-- Lista de Inscritos -->
+          <hr />
+          <div id="content">
+            <v-layout row wrap class="my-5" >
+              <v-flex xs12>
+                <center><h2 class="my-3">Lista de Inscritos</h2></center>
+                <v-data-table :headers="tbl.inscricoes.headers" :items="participantes" hide-actions item-key="nome" class="elevation-1 mx-3">
+                  <template slot="items" slot-scope="props">
+                    <tr>
+                      <td>{{ props.item.numerador }}</td>
+                      <td>{{ props.item.nome }}</td>
+                      <td>{{ props.item.clube }}</td>
+                      <td>{{ props.item.distrito }}</td>
+                      <td><center><v-icon>{{ props.item.pagamento | alternativa }}</v-icon></center></td>
+                    </tr>
+                  </template>
+                </v-data-table>
               </v-flex>
             </v-layout>
           </div>
@@ -203,6 +195,13 @@
               </v-flex>
             </v-layout>
           </div>
+
+          <!-- Mapa -->
+          <v-parallax height="380">
+            <v-layout column align-center justify-center>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.9146661318073!2d-52.587945185509746!3d-23.643226870504613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ed5a777bbc2a0d%3A0x377c5a2834711d97!2sChacara+Viola+de+Ouro+Eventos!5e0!3m2!1spt-BR!2sbr!4v1535122142979" width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </v-layout>
+          </v-parallax>
         </section>
 
         <!-- Imagem 4 / Contatos -->
@@ -226,7 +225,7 @@
                 <h3>Nicole Chiochetta</h3>
                 <small>
                   Presidente do Evento<br />
-                  +55 55 99686 - 5487
+                  +55 44 99162 - 5487
                 </small>
               </v-flex>
               <v-flex xs12 sm3 text-xs-center class="mb-3">
@@ -270,7 +269,6 @@
               <div class="headline white--text ml-3">Organização</div>
               <div class="white--text my-3 ml-3">
                 <img src="../../static/img/rtc_cianorte.png" width="120vh" class="mr-3">
-                <img src="../../static/img/rtc_cianorte.png" width="120vh">
               </div>
             </v-flex>
             <v-flex xs12 sm5>
@@ -280,6 +278,15 @@
             </v-flex>
             <v-flex xs12 sm3>
               <div class="headline white--text ml-3">Redes Sociais</div>
+                <v-layout row wrap id="footer-layout" class="my-3 text-dark-collor">
+                  <v-flex xs12 align-content-center>
+                    <img src="../../static/img/facebook.png"> / RotaractCianorte
+                  </v-flex>
+
+                  <v-flex xs12 align-content-center>
+                    <img src="../../static/img/instagram.png"> / rtc.cianorte
+                  </v-flex>
+                </v-layout>
               <div class="white--text my-3 ml-3">
               </div>
             </v-flex>
@@ -309,6 +316,7 @@ import ModalInscricao from '@/components/ModalInscricao'
 import ModalPagamento from '@/components/ModalPagamento'
 
 var dbClube = Firebase.database().ref('clube')
+var dbParticipante = Firebase.database().ref('participante')
 export default {
   name: 'Home',
   components: {
@@ -319,12 +327,20 @@ export default {
     return {
       drawer: false,
       inscricao: false,
-      inscricaoAberta: false,
+      inscricaoAberta: true,
       pagamento: false,
-      lstClube: [
-        {Nome: 'Rotaract Club de Cianorte'},
-        {Nome: 'Rotaract Club de Goioere'}
-      ],
+      tbl: {
+        inscricoes: {
+          headers: [
+            { text: '#', align: 'left', value: 'numerador' },
+            { text: 'Nome', align: 'left', value: 'nome' },
+            { text: 'Clube', align: 'left', value: 'clube' },
+            { text: 'Distrito', align: 'left', value: 'distrito' },
+            { text: 'Pgto', align: 'center', value: 'pgto' }
+          ]
+        }
+      },
+      participantes: [],
       local: [
         {
           src: '../../static/img/local/viola_de_ouro (1).jpeg'
@@ -404,11 +420,25 @@ export default {
         {
           src: '../../static/img/local/viola_de_ouro (26).jpeg'
         }
-      ]
+      ],
+      loteAberto: false,
+      loteEsgotado: true
     }
   },
   firebase: {
-    lstClube: dbClube
+    lstClube: dbClube,
+    participantes: dbParticipante
+  },
+  filters: {
+    alternativa (val) {
+      var alternativa
+      if (val) {
+        alternativa = 'check'
+      } else {
+        alternativa = 'clear'
+      }
+      return alternativa
+    }
   },
   methods: {
     closeInscricao (val) {
@@ -416,6 +446,37 @@ export default {
     },
     closePagamento (val) {
       this.pagamento = val
+    },
+    validaAberturaLote () {
+      let dataAbertura = new Date('2018-09-13 20:00:00')
+      if (new Date() >= dataAbertura) {
+        this.loteAberto = true
+      } else {
+        this.loteAberto = false
+      }
+    },
+    validaLoteEsgotado () {
+      if ((this.participantes.length > 0) && (this.participantes.length < 40)) {
+        this.loteEsgotado = false
+      } else {
+        this.loteEsgotado = true
+      }
+    }
+  },
+  mounted () {
+    this.validaAberturaLote()
+  },
+  watch: {
+    participantes: function (dados) {
+      for (var reg in dados) {
+        dados[reg].numerador = parseInt(reg) + 1
+      }
+      const self = this
+      setInterval(() => {
+        self.validaLoteEsgotado()
+      }, 3000)
+
+      return dados
     }
   }
 }
@@ -459,6 +520,20 @@ a:hover {
   text-decoration: none;
   font-size: 3vh;
 }
+.regimento a {
+  color: #12543D !important;
+  text-decoration: none;
+  font-size: 3vh;
+  padding-left: 1vw;
+  padding-right: 1vw;
+}
+.regimento a:hover {
+  color: dimgray !important;
+  text-decoration: none;
+  font-size: 3vh;
+  padding-left: 1vw;
+  padding-right: 1vw;
+}
 /* .toolbar__content {
   background-color: #017C50;
 } */
@@ -472,5 +547,9 @@ v-toolbar a {
   height: 50vh;
   display: block;
   overflow-y: scroll;
+}
+
+.text-dark-collor {
+  color: #12543D !important
 }
 </style>

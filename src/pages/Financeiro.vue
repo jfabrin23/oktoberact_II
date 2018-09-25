@@ -57,7 +57,7 @@
                         <td>{{ props.item.valor | grana }}</td>
                         <td>
                           <v-tooltip top v-if="!props.item.situacao">
-                            <v-btn flat icon color="primary" slot="activator" @click="lancamento.tipo = 'E', lancamento.participante = props.item['.key'], modalFinanceiros = true"><v-icon>check</v-icon></v-btn>
+                            <v-btn flat icon color="primary" slot="activator" @click="teste(props.item), lancamento.tipo = 'E', lancamento.financeiro = props.item, modalFinanceiros = true"><v-icon>check</v-icon></v-btn>
                             <span>Receber</span>
                           </v-tooltip>
                           <v-tooltip top>
@@ -74,7 +74,7 @@
                     </template>
                   </v-data-table>
                   <v-fab-transition>
-                    <v-btn dark bottom left small fab color="primary" pt-5 @click="lancamento.tipo = 'E', modalFinanceiros = true">
+                    <v-btn dark bottom left small fab color="primary" pt-5 @click="lancamento.tipo = 'E', lancamento.financeiro, modalFinanceiros = true">
                       <v-icon>add</v-icon>
                     </v-btn>
                   </v-fab-transition>
@@ -85,7 +85,7 @@
         </v-container>
       </v-content>
 
-      <ModalFinanceiro :modal='modalFinanceiros' :tipo="lancamento.tipo" :lancamento="lancamento" v-on:modalFinanceiros="closeFinanceiro" v-if="modalFinanceiros"></ModalFinanceiro>
+      <ModalFinanceiro :modal='modalFinanceiros' :tipo="lancamento.tipo" :lancamento="lancamento.tipo" :fin="lancamento.financeiro" v-on:modalFinanceiros="closeFinanceiro" v-if="modalFinanceiros"></ModalFinanceiro>
     </v-app>
   </div>
 </template>
@@ -96,6 +96,7 @@ import Cabecalho from '@/components/Header'
 import ModalFinanceiro from '@/components/ModalFinanceiro'
 
 var dbFinanceiro = Firebase.database().ref('financeiro')
+var dbParticipante = Firebase.database().ref('participante')
 export default {
   name: 'Financeiro',
   components: {
@@ -106,7 +107,8 @@ export default {
     return {
       financeiros: [],
       lancamento: {
-        tipo: 'S'
+        tipo: 'S',
+        financeiro: {}
       },
       modalFinanceiros: false,
       searchFinanceiro: '',
@@ -151,7 +153,7 @@ export default {
     },
     grana (val) {
       var money
-      money = 'R$ ' + String(val.toFixed(2)).replace('.', ',')
+      money = 'R$ ' + String(parseFloat(val).toFixed(2)).replace('.', ',')
       return money
     },
     saida (val) {
@@ -165,11 +167,15 @@ export default {
     }
   },
   firebase: {
-    financeiros: dbFinanceiro
+    financeiros: dbFinanceiro,
+    participantes: dbParticipante
   },
   methods: {
     closeFinanceiro (val) {
       this.modalFinanceiros = val
+    },
+    teste (item) {
+      console.log(item)
     }
   },
   watch: {
